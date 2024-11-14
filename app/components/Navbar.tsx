@@ -1,10 +1,13 @@
 "use client";
 
+import { useAppSelector } from '@/lib/hooks';
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const uniqueItemCount = cartItems.length;
 
   return (
     <header className="bg-green-700 text-white shadow-md">
@@ -18,7 +21,13 @@ export default function Navbar() {
           <Link href="/about" className="hover:text-green-200">About Us</Link>
           <Link href="/blog" className="hover:text-green-200">Blog</Link>
           <Link href="/account/profile" className="hover:text-green-200">Account</Link>
-          <Link href="/cart" className="hover:text-green-200">Cart</Link>
+          <Link href="/cart" className="hover:text-green-200 flex">
+              <span>🛒</span>
+              {uniqueItemCount > 0 && (
+                <span className="bg-green-800 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center ml-1">
+                  {uniqueItemCount}
+                </span>
+              )}</Link>
         </div>
 
         {/* Mobile Menu Button */}

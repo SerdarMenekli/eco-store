@@ -1,9 +1,11 @@
-// app/products/[id]/page.tsx
-
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+// import { useAppDispatch } from '@/lib/hooks';
+// import { addItem } from '@/lib/features/cart/cartSlice';
+// import { Product } from '@/lib/types';
+// import AddToCartButton from '@/app/components/AddToCartButton';
+import AddToCartControl from '@/app/components/AddToCartControl';
 
-// Mock Product Data
 const mockProducts = [
   {
     id: 1,
@@ -26,7 +28,6 @@ const mockProducts = [
     image: '/placeholder-product.jpg',
     description: 'Pack of bamboo toothbrushes, a biodegradable alternative to plastic toothbrushes.',
   },
-  // Add more mock products as needed
 ];
 
 type ProductProps = {
@@ -36,12 +37,16 @@ type ProductProps = {
 };
 
 export default async function ProductPage({ params }: ProductProps) {
+  // const dispatch = useAppDispatch();
+
+  // const handleAddToCart = (product: Product) => {
+  //   dispatch(addItem({ id: product.id, name: product.name, price: product.price, quantity: 1 }));
+  // };
+
   const { id } = await params;
 
-  // Find the product by id
   const product = mockProducts.find((product) => product.id === Number(id));
 
-  // If product not found, render 404 page
   if (!product) {
     notFound();
     return null;
@@ -66,10 +71,15 @@ export default async function ProductPage({ params }: ProductProps) {
           <h1 className="text-3xl font-bold">{product.name}</h1>
           <p className="mt-2 text-xl text-green-600">${product.price.toFixed(2)}</p>
           <p className="mt-4 text-gray-700">{product.description}</p>
-          
-          <button className="mt-6 px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition">
+
+          <AddToCartControl product={product} />
+
+          {/* <AddToCartButton product={product}/> */}
+          {/* <button
+            className="mt-6 px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+            onClick={() => handleAddToCart(product)}>
             Add to Cart
-          </button>
+          </button> */}
         </div>
       </div>
     </main>
