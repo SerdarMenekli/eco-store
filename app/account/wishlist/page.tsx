@@ -1,3 +1,3 @@
-export default function AccountPage() {
-    return <h1 className="text-3xl">Account</h1>;
+export default function WishlistPage() {
+    return <h1 className="text-3xl">Wishlist</h1>;
   }
