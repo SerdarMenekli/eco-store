@@ -31,9 +31,10 @@ const mockProducts = [
 ];
 
 type ProductProps = {
-  params: {
-    id: string;
-  };
+  // params: {
+  //   id: string;
+  // };
+  params: Promise<{ id: string }>;
 };
 
 export default async function ProductPage({ params }: ProductProps) {
