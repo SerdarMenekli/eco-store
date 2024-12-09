@@ -11,3 +11,13 @@ declare module "next-auth" {
     id: string; // Add id field to the user
   }
 }
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: string;
+    name?: string | null;
+    email?: string | null;
+    picture?: string | null;
+    sub?: string | null;
+  }
+}

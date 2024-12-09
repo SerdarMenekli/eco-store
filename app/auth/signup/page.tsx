@@ -25,7 +25,7 @@ export default function SignUpPage() {
         const { error } = await res.json();
         setError(error || 'Something went wrong');
       }
-    } catch (err) {
+    } catch {
       setError('Network error');
     }
   };

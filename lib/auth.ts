@@ -1,8 +1,9 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "./prisma";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { NextAuthOptions, Session, User } from "next-auth";
+import { NextAuthOptions, Session } from "next-auth";
 import bcrypt from 'bcryptjs';
+import { JWT } from "next-auth/jwt";
 
 export const authOptions: NextAuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
@@ -71,7 +72,7 @@ export const authOptions: NextAuthOptions = {
         //     }
         //     return session;
         // },
-        async session({ session, token }: { session: Session; token: any }) {
+        async session({ session, token }: { session: Session; token: JWT }) {
             console.log('Session callback - session:', session);
             if (token) {
                 session.user.id = token.id as string;

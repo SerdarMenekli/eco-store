@@ -1,6 +1,5 @@
 import { prisma } from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
-import type { NextApiRequest, NextApiResponse } from 'next';
 
 // export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 //     if (req.method === 'POST') {
@@ -41,9 +40,17 @@ export async function POST(req: Request) {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'Registration failed' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    if (error instanceof Error) {
+      //console.error(error.message);
+      return new Response(
+        JSON.stringify({ error: 'Registration failed', details: error.message }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }  
+
+    return new Response(
+      JSON.stringify({ error: 'Registration failed', details: 'Unknown error' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
   }
 }
