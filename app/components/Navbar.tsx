@@ -3,6 +3,7 @@
 import { useAppSelector } from '@/lib/hooks';
 import Link from 'next/link';
 import { useState } from 'react';
+import LoginStatus from './LoginStatus';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +21,8 @@ export default function Navbar() {
           <Link href="/products" className="hover:text-green-200">Products</Link>
           <Link href="/about" className="hover:text-green-200">About Us</Link>
           <Link href="/blog" className="hover:text-green-200">Blog</Link>
-          <Link href="/account/profile" className="hover:text-green-200">Account</Link>
+          <LoginStatus/>
+          {/* <Link href="/account/profile" className="hover:text-green-200">Account</Link> */}
           <Link href="/cart" className="hover:text-green-200 flex">
               <span>🛒</span>
               {uniqueItemCount > 0 && (
