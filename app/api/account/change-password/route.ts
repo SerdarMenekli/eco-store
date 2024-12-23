@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     });
 
     return new Response(JSON.stringify({ message: "Password updated successfully" }), { status: 200 });
-  } catch (error) {
+  } catch {
     return new Response(JSON.stringify({ error: "Failed to update password" }), { status: 500 });
   }
 }

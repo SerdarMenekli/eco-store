@@ -1,6 +1,5 @@
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
-import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth/next';
 import { NextResponse } from 'next/server';
 
@@ -20,7 +19,7 @@ export async function POST(req: Request) {
       });
   
       return NextResponse.json({ message: "Profile updated successfully!" });
-    } catch (error) {
+    } catch {
       return NextResponse.json({ error: "Failed to update profile." }, { status: 500 });
     }
   }
