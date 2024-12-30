@@ -21,7 +21,6 @@ export default async function ProfilePage() {
   }
   
   return <ProfileClient user={{ ...user, name: user.name ?? 'User' }} />;
-
 }
 
 
