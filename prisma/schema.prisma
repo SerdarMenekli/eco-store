@@ -42,3 +42,11 @@ model Session {
   sessionToken String   @unique
   expires      DateTime
 }
+
+model Product {
+  id      Int      @id @default(autoincrement())
+  name    String
+  price   Float
+  image   String?
+  createdAt DateTime @default(now())
+}
