@@ -1,29 +1,28 @@
 "use client";
-import { ProductsPageProps } from '@/lib/types';
 import ProductCard from '../components/ProductCard';
 import { useEffect, useState } from 'react';
 import { Product } from '@prisma/client';
 
-const mockProducts = [
-  {
-    id: 1,
-    name: 'Eco-Friendly Water Bottle',
-    price: 19.99,
-    image: '/placeholder-product.jpg',
-  },
-  {
-    id: 2,
-    name: 'Reusable Grocery Bag Set',
-    price: 14.99,
-    image: '/placeholder-product.jpg',
-  },
-  {
-    id: 3,
-    name: 'Bamboo Toothbrush Pack',
-    price: 12.99,
-    image: '/placeholder-product.jpg',
-  },
-];
+// const mockProducts = [
+//   {
+//     id: 1,
+//     name: 'Eco-Friendly Water Bottle',
+//     price: 19.99,
+//     image: '/placeholder-product.jpg',
+//   },
+//   {
+//     id: 2,
+//     name: 'Reusable Grocery Bag Set',
+//     price: 14.99,
+//     image: '/placeholder-product.jpg',
+//   },
+//   {
+//     id: 3,
+//     name: 'Bamboo Toothbrush Pack',
+//     price: 12.99,
+//     image: '/placeholder-product.jpg',
+//   },
+// ];
 
 // export async function getServerSideProps() {
 //   const res = await fetch(`${process.env.BASE_URL}/api/products`);
@@ -51,7 +50,7 @@ export default function ProductsPage() {
   // }, []);
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await fetch(`/api/products?page=${page}&limit=10`);
+      const res = await fetch(`/api/products?page=${page}&limit=12`);
       const data = await res.json();
       setProducts(data.products);
       setTotalPages(data.totalPages);
