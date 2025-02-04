@@ -36,6 +36,7 @@ import { Product } from '@prisma/client';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -50,14 +51,14 @@ export default function ProductsPage() {
   // }, []);
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await fetch(`/api/products?page=${page}&limit=12`);
+      const res = await fetch(`/api/products?page=${page}&limit=12&search=${encodeURIComponent(searchQuery)}`);
       const data = await res.json();
       setProducts(data.products);
       setTotalPages(data.totalPages);
     };
 
     fetchProducts();
-  }, [page]);
+  }, [page, searchQuery]);
 
   const handlePrev = () => setPage((prev) => Math.max(prev - 1, 1));
   const handleNext = () => setPage((prev) => Math.min(prev + 1, totalPages));
@@ -65,6 +66,13 @@ export default function ProductsPage() {
   return (
     <main className="container mx-auto p-4">
       <h1 className="text-3xl font-semibold mb-6">Our Products</h1>
+      <input
+        type="text"
+        placeholder="Search for products..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="w-full p-2 mb-4 border border-gray-300 rounded"
+      />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* {mockProducts.map((product) => (
           <ProductCard

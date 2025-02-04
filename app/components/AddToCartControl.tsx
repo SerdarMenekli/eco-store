@@ -45,7 +45,7 @@ export default function AddToCartControl({ product }: { product: Product }) {
                     <button
                         onClick={handleDecrement}
                         className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full text-xl font-bold hover:bg-gray-300">
-                        -
+                        <span className='translate-y-[-1px]' >-</span>
                     </button>
                     <span className="text-lg font-semibold">{quantity}</span>
                     <button
