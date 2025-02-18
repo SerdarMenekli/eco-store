@@ -30,10 +30,10 @@ export default function AddToCartControl({ product }: { product: Product }) {
     };
 
     return (
-        <div>
+        <>
             {quantity === 0 ? (
                 <button
-                    className="mt-6 px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+                    className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
                     onClick={handleAddToCart}>Add to Cart</button>
             ) : (
                 // <div>
@@ -41,7 +41,7 @@ export default function AddToCartControl({ product }: { product: Product }) {
                 //     <span>{quantity}</span>
                 //     <button onClick={handleIncrement}>+</button>
                 // </div>
-                <div className="mt-6 px-6 py-3 flex items-center space-x-2">
+                <span className="px-6 py-2 inline-flex items-center space-x-2">
                     <button
                         onClick={handleDecrement}
                         className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full text-xl font-bold hover:bg-gray-300">
@@ -53,8 +53,8 @@ export default function AddToCartControl({ product }: { product: Product }) {
                         className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full text-xl font-bold hover:bg-gray-300">
                         +
                     </button>
-                </div>
+                </span>
             )}
-        </div>
+        </>
     );
 }

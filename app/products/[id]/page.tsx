@@ -78,12 +78,15 @@ export default async function ProductPage({ params }: ProductProps) {
           <p className="mt-2 text-xl text-green-600">${product.price.toFixed(2)}</p>
           {/* <p className="mt-4 text-gray-700">{product.description}</p> */}
 
-          <AddToCartControl product={{
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            image: product.image,
-          }} />
+          <div>
+            <AddToCartControl product={{
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              image: product.image,
+            }} />
+          </div>
+
 
           {/* <AddToCartButton product={product}/> */}
           {/* <button
