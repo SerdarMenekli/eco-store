@@ -33,15 +33,15 @@ export default function AddToCartControl({ product }: { product: Product }) {
         <>
             {quantity === 0 ? (
                 <button
-                    className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
-                    onClick={handleAddToCart}>Add to Cart</button>
+                    className="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 hover:scale-110 delay-150 ease-in-out duration-300 transition"
+                    onClick={handleAddToCart}>Add&nbsp;to Cart</button>
             ) : (
                 // <div>
                 //     <button onClick={handleDecrement}>-</button>
                 //     <span>{quantity}</span>
                 //     <button onClick={handleIncrement}>+</button>
                 // </div>
-                <span className="px-6 py-2 inline-flex items-center space-x-2">
+                <span className="px-4 py-2 inline-flex items-center space-x-2">
                     <button
                         onClick={handleDecrement}
                         className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full text-xl font-bold hover:bg-gray-300">

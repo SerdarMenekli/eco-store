@@ -9,14 +9,26 @@ export async function GET(request: Request) {
   const skip = (page - 1) * limit;
 
   const search = url.searchParams.get('search')?.trim();
+  const category = url.searchParams.get('category');
 
-  const whereClause: Prisma.ProductWhereInput | undefined = search ? { name: { contains: search, mode: 'insensitive' as Prisma.QueryMode } } : undefined;
+  // const whereClause: Prisma.ProductWhereInput | undefined = search ? { name: { contains: search, mode: 'insensitive' as Prisma.QueryMode } } : undefined;
+
+  const whereClause: Prisma.ProductWhereInput = {
+    ...(search ? { name: { contains: search, mode: 'insensitive' } } : {}),
+    ...(category ? { categoryId: Number(category) } : {}),
+  };
 
   const [products, total] = await Promise.all([
     prisma.product.findMany({ where: whereClause, skip, take: limit }),
     prisma.product.count({ where: whereClause }),
   ]);
 
+  return NextResponse.json({
+    products,
+    total,
+    page,
+    totalPages: Math.ceil(total / limit),
+  });
   // let productsResult;
   // let totalResult;
 
@@ -51,14 +63,6 @@ export async function GET(request: Request) {
 
   // const products = productsResult;
   // const total = totalResult;
-
-  return NextResponse.json({
-    products,
-    total,
-    page,
-    totalPages: Math.ceil(total / limit),
-  });
-
   // try {
   //   const products = await prisma.product.findMany();
   //   return NextResponse.json(products);

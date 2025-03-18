@@ -65,42 +65,55 @@ async function main() {
         { name: "Stainless Steel Water Bottle", price: 24.99, image: "/images/bottles/stainless-bottle.jpg", categoryId: categoryMap["Bottles"] },
         { name: "Glass Water Bottle", price: 19.99, image: "/images/bottles/glass-bottle.jpg", categoryId: categoryMap["Bottles"] },
         { name: "Insulated Travel Mug", price: 29.99, image: "/images/bottles/travel-mug.jpg", categoryId: categoryMap["Bottles"] },
+
         { name: "Reusable Tote Bag", price: 12.99, image: "/images/bags/tote-bag.jpg", categoryId: categoryMap["Bags"] },
         { name: "Foldable Shopping Bag", price: 9.99, image: "/images/bags/foldable-bag.jpg", categoryId: categoryMap["Bags"] },
         { name: "Canvas Grocery Bag", price: 14.99, image: "/images/bags/canvas-bag.jpg", categoryId: categoryMap["Bags"] },
+
         { name: "Bamboo Toothbrush", price: 6.99, image: "/images/toothbrushes/bamboo-toothbrush.jpg", categoryId: categoryMap["Toothbrushes"] },
         { name: "Charcoal Infused Toothbrush", price: 7.99, image: "/images/toothbrushes/charcoal-toothbrush.jpg", categoryId: categoryMap["Toothbrushes"] },
         { name: "Kids Bamboo Toothbrush Set", price: 12.99, image: "/images/toothbrushes/kids-bamboo.jpg", categoryId: categoryMap["Toothbrushes"] },
+
         { name: "Bamboo Cutlery Set", price: 15.99, image: "/images/cutlery/bamboo-cutlery.jpg", categoryId: categoryMap["Cutlery"] },
         { name: "Reusable Metal Straws", price: 9.99, image: "/images/straws/metal-straws.jpg", categoryId: categoryMap["Straws"] },
         { name: "Compostable Cleaning Sponges", price: 10.99, image: "/images/cleaning-supplies/eco-sponges.jpg", categoryId: categoryMap["Cleaning Supplies"] },
+
         { name: "Organic Cotton Face Towels", price: 17.99, image: "/images/beauty-skincare/face-towels.jpg", categoryId: categoryMap["Beauty & Skincare"] },
         { name: "Bamboo Hair Brush", price: 11.99, image: "/images/beauty-skincare/hair-brush.jpg", categoryId: categoryMap["Beauty & Skincare"] },
         { name: "Reusable Makeup Remover Pads", price: 14.99, image: "/images/beauty-skincare/makeup-remover.jpg", categoryId: categoryMap["Beauty & Skincare"] },
+
         { name: "Organic Cotton T-Shirt", price: 24.99, image: "/images/clothing/cotton-shirt.jpg", categoryId: categoryMap["Clothing"] },
         { name: "Hemp Fabric Hoodie", price: 49.99, image: "/images/clothing/hemp-hoodie.jpg", categoryId: categoryMap["Clothing"] },
         { name: "Recycled Polyester Jacket", price: 69.99, image: "/images/clothing/recycled-jacket.jpg", categoryId: categoryMap["Clothing"] },
+
         { name: "Bamboo Cutting Board", price: 21.99, image: "/images/kitchenware/bamboo-board.jpg", categoryId: categoryMap["Kitchenware"] },
         { name: "Reusable Silicone Food Bags", price: 19.99, image: "/images/kitchenware/silicone-bags.jpg", categoryId: categoryMap["Kitchenware"] },
         { name: "Beeswax Food Wraps", price: 16.99, image: "/images/kitchenware/beeswax-wraps.jpg", categoryId: categoryMap["Kitchenware"] },
+
         { name: "Recycled Paper Notebook", price: 8.99, image: "/images/office-supplies/recycled-notebook.jpg", categoryId: categoryMap["Office Supplies"] },
         { name: "Eco-Friendly Pens", price: 5.99, image: "/images/office-supplies/eco-pens.jpg", categoryId: categoryMap["Office Supplies"] },
         { name: "Bamboo Desk Organizer", price: 27.99, image: "/images/office-supplies/desk-organizer.jpg", categoryId: categoryMap["Office Supplies"] },
         { name: "Wooden Puzzle Set", price: 19.99, image: "/images/toys/wooden-puzzle.jpg", categoryId: categoryMap["Toys"] },
+
         { name: "Organic Cotton Stuffed Animal", price: 25.99, image: "/images/toys/stuffed-animal.jpg", categoryId: categoryMap["Toys"] },
         { name: "Biodegradable Beach Toys", price: 22.99, image: "/images/toys/beach-toys.jpg", categoryId: categoryMap["Toys"] },
+
         { name: "Recycled Plastic Phone Case", price: 14.99, image: "/images/electronics/recycled-case.jpg", categoryId: categoryMap["Electronics Accessories"] },
         { name: "Solar-Powered Phone Charger", price: 39.99, image: "/images/electronics/solar-charger.jpg", categoryId: categoryMap["Electronics Accessories"] },
         { name: "Biodegradable Earphone Case", price: 12.99, image: "/images/electronics/earphone-case.jpg", categoryId: categoryMap["Electronics Accessories"] },
+
         { name: "Cork Yoga Mat", price: 49.99, image: "/images/fitness-wellness/cork-mat.jpg", categoryId: categoryMap["Fitness & Wellness"] },
         { name: "Bamboo Fiber Gym Towel", price: 19.99, image: "/images/fitness-wellness/gym-towel.jpg", categoryId: categoryMap["Fitness & Wellness"] },
         { name: "Recycled Foam Roller", price: 29.99, image: "/images/fitness-wellness/foam-roller.jpg", categoryId: categoryMap["Fitness & Wellness"] },
+
         { name: "Compostable Trash Bags", price: 11.99, image: "/images/cleaning-supplies/trash-bags.jpg", categoryId: categoryMap["Cleaning Supplies"] },
         { name: "Eco-Friendly Dish Soap", price: 7.99, image: "/images/cleaning-supplies/dish-soap.jpg", categoryId: categoryMap["Cleaning Supplies"] },
         { name: "Reusable Lint Roller", price: 9.99, image: "/images/cleaning-supplies/lint-roller.jpg", categoryId: categoryMap["Cleaning Supplies"] },
+
         { name: "Hemp Facial Cleanser", price: 14.99, image: "/images/beauty-skincare/facial-cleanser.jpg", categoryId: categoryMap["Beauty & Skincare"] },
         { name: "Eco-Friendly Lip Balm", price: 5.99, image: "/images/beauty-skincare/lip-balm.jpg", categoryId: categoryMap["Beauty & Skincare"] },
         { name: "Sustainable Shampoo Bar", price: 9.99, image: "/images/beauty-skincare/shampoo-bar.jpg", categoryId: categoryMap["Beauty & Skincare"] },
+        
         { name: "Hemp Canvas Backpack", price: 59.99, image: "/images/bags/canvas-backpack.jpg", categoryId: categoryMap["Bags"] },
         { name: "Wool Felt Laptop Sleeve", price: 32.99, image: "/images/bags/laptop-sleeve.jpg", categoryId: categoryMap["Bags"] },
         { name: "Recycled Fabric Duffel Bag", price: 44.99, image: "/images/bags/duffel-bag.jpg", categoryId: categoryMap["Bags"] },
