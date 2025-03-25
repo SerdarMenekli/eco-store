@@ -1,6 +1,6 @@
 "use client";
 import ProductCard from '../components/ProductCard';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Product } from '@prisma/client';
 import CategoryFilter from '../components/CategoryFilter';
 import { useSearchParams } from 'next/navigation';
@@ -34,14 +34,20 @@ import { useSearchParams } from 'next/navigation';
 
 // const products = getServerSideProps();
 
+export default function ProductsPage(){
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Products />
+    </Suspense>
+  );
+}
 
-
-export default function ProductsPage() {
+function Products() {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const searchParams = useSearchParams();
+  
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
@@ -52,6 +58,7 @@ export default function ProductsPage() {
 
   //   fetchProducts();
   // }, []);
+  const searchParams = useSearchParams();
   const category = searchParams.get("category");
 
   useEffect(() => {
@@ -120,7 +127,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </div>
-
     </main>
   );
 }
