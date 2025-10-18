@@ -77,7 +77,7 @@ function Products() {
 
   return (
     <main className="md:w-[95%] mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-6">Our Products</h1>
+      {/* <h1 className="text-3xl font-semibold mb-6">Our Products</h1> */}
       <div className='grid grid-cols-12 gap-6'>
         <div className='col-span-12 lg:col-span-3 order-first lg:order-none'>
           <CategoryFilter />
